@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AssetIQ — Asset Management</title>
+    <script>
+      // Apply dark class BEFORE first paint — default is always LIGHT
+      // Uses 'assetiq_theme' key so old stale 'theme' values are ignored
+      (function () {
+        if (localStorage.getItem('assetiq_theme') === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        // Remove old stale notification key that silently blocked all notifications
+        localStorage.removeItem('seenNotifIds');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
