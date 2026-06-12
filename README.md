@@ -62,7 +62,7 @@ Frontend UI: [http://localhost:5173](http://localhost:5173)
 
 Backend API: [http://localhost:5000](http://localhost:5000)
 
-To stop the application and clean up resources, run: ```bash docker compose down```
+To stop the application and clean up resources, run: ```docker compose down```
 
 ## 🔐 Environment Variables
 For convenience during evaluation, development secrets and database URIs have been integrated directly into the docker-compose.yml network configuration. No .env file configuration is required to run the Dockerized environment. The application provisions its own internal MongoDB container instance upon startup.
