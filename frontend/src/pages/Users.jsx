@@ -17,7 +17,7 @@ const Users = ({ user: currentUser }) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/auth/users', config);
+        const { data } = await axios.get('/api/auth/users', config);
         setUsers(data);
       } catch (err) {
         showToast('error', 'Failed to load users.');
@@ -42,7 +42,7 @@ const Users = ({ user: currentUser }) => {
     setUpdatingId(userId);
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/auth/users/${userId}/role`,
+        `/api/auth/users/${userId}/role`,
         { role: newRole },
         config
       );

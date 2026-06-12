@@ -22,7 +22,7 @@ export const NotificationsProvider = ({ children }) => {
     if (!token) return;
     try {
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.get('http://localhost:5000/api/bookings/mybookings', config);
+      const { data } = await axios.get('/api/bookings/mybookings', config);
 
       // Build notifications from ALL non-Pending bookings
       const incoming = data

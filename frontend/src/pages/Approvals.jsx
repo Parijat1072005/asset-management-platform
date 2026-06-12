@@ -12,7 +12,7 @@ const Approvals = () => {
       const token = localStorage.getItem('token');
       const config = { headers: { Authorization: `Bearer ${token}` } };
       // Fetches all system bookings (Admin only route)
-      const response = await axios.get('http://localhost:5000/api/bookings', config);
+      const response = await axios.get('/api/bookings', config);
       setRequests(response.data);
     } catch (error) {
       console.error("Error fetching requests:", error);
@@ -33,7 +33,7 @@ const Approvals = () => {
       const token = localStorage.getItem('token');
       const config = { headers: { Authorization: `Bearer ${token}` } };
       
-      await axios.put(`http://localhost:5000/api/bookings/${id}/status`, { status: newStatus }, config);
+      await axios.put(`/api/bookings/${id}/status`, { status: newStatus }, config);
       
       // Re-fetch to ensure data and inventory counts are perfectly synced
       fetchBookings();

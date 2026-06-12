@@ -19,8 +19,8 @@ const History = ({ user }) => {
         
         // Dynamically choose endpoint based on view mode
         const endpoint = viewMode === 'personal' 
-          ? 'http://localhost:5000/api/bookings/mybookings' 
-          : 'http://localhost:5000/api/bookings';
+          ? '/api/bookings/mybookings' 
+          : '/api/bookings';
           
         const response = await axios.get(endpoint, config);
         setHistoryData(response.data);

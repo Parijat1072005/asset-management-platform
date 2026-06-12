@@ -11,10 +11,7 @@ app.use(express.json());
 // --- Routes ---
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/assets', require('./routes/assetRoutes'));
-// --- Routes ---
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/assets', require('./routes/assetRoutes'));
-app.use('/api/bookings', require('./routes/bookingRoutes')); // <-- Add this line
+app.use('/api/bookings', require('./routes/bookingRoutes'));
 
 const connectDB = async () => {
     try {

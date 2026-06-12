@@ -23,7 +23,7 @@ const Bookings = () => {
       try {
         const token = localStorage.getItem('token');
         const config = { headers: { Authorization: `Bearer ${token}` } };
-        const response = await axios.get('http://localhost:5000/api/assets', config);
+        const response = await axios.get('/api/assets', config);
         // Only show assets that are not out of stock in discovery
         setAssets(response.data);
       } catch (error) {
@@ -58,7 +58,7 @@ const Bookings = () => {
         ...bookingData
       };
 
-      await axios.post('http://localhost:5000/api/bookings', payload, config);
+      await axios.post('/api/bookings', payload, config);
       alert(`Successfully requested ${bookingData.quantity}x ${selectedAsset.name}`);
       
       setSelectedAsset(null);

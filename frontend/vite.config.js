@@ -9,6 +9,14 @@ export default defineConfig({
     port: 5173, // Strictly binds to this port
     watch: {
       usePolling: true, // Crucial for Docker on Windows to detect file changes
+    },
+    proxy: {
+      // Proxy all /api requests to the backend service
+      // In Docker: 'backend' is the service name; locally: localhost:5000
+      '/api': {
+        target: process.env.VITE_API_TARGET || 'http://localhost:5000',
+        changeOrigin: true,
+      }
     }
   }
 })

@@ -137,8 +137,8 @@ const Dashboard = () => {
         const config = { headers: { Authorization: `Bearer ${token}` } };
 
         const [assetsRes, statsRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/assets', config),
-          axios.get('http://localhost:5000/api/bookings/stats', config),
+          axios.get('/api/assets', config),
+          axios.get('/api/bookings/stats', config),
         ]);
 
         const assets = assetsRes.data;
@@ -184,8 +184,8 @@ const Dashboard = () => {
       const token = localStorage.getItem('token');
       const config = { headers: { Authorization: `Bearer ${token}` } };
       const [assetsRes, statsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/assets', config),
-        axios.get('http://localhost:5000/api/bookings/stats', config),
+        axios.get('/api/assets', config),
+        axios.get('/api/bookings/stats', config),
       ]);
 
       const assets = assetsRes.data;

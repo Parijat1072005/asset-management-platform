@@ -29,8 +29,8 @@ const Auth = ({ onLogin }) => {
                 : { name: formData.name, email: formData.email, password: formData.password };
             // Notice we dropped formData.role completely
 
-            // Make the request to our Node backend
-            const response = await axios.post(`http://localhost:5000${endpoint}`, payload);
+            // Make the request to our Node backend (Vite proxy handles the forwarding)
+            const response = await axios.post(endpoint, payload);
 
             // Save the JWT token and user data to localStorage
             localStorage.setItem('token', response.data.token);

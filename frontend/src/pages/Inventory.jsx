@@ -27,7 +27,7 @@ const Inventory = ({ user }) => {
                 const token = localStorage.getItem('token');
                 const config = { headers: { Authorization: `Bearer ${token}` } };
                 
-                const response = await axios.get('http://localhost:5000/api/assets', config);
+                const response = await axios.get('/api/assets', config);
                 setAssets(response.data);
             } catch (error) {
                 console.error("Error fetching assets:", error);
@@ -67,7 +67,7 @@ const Inventory = ({ user }) => {
                 const token = localStorage.getItem('token');
                 const config = { headers: { Authorization: `Bearer ${token}` } };
                 
-                await axios.delete(`http://localhost:5000/api/assets/${id}`, config);
+                await axios.delete(`/api/assets/${id}`, config);
                 setAssets(assets.filter(a => a._id !== id));
             } catch (error) {
                 console.error("Error deleting asset:", error);
@@ -84,10 +84,10 @@ const Inventory = ({ user }) => {
 
         try {
             if (isEditing) {
-                const response = await axios.put(`http://localhost:5000/api/assets/${formData._id}`, formData, config);
+                const response = await axios.put(`/api/assets/${formData._id}`, formData, config);
                 setAssets(assets.map(a => a._id === formData._id ? response.data : a));
             } else {
-                const response = await axios.post('http://localhost:5000/api/assets', formData, config);
+                const response = await axios.post('/api/assets', formData, config);
                 setAssets([...assets, response.data]);
             }
             setIsModalOpen(false);
